@@ -1,28 +1,45 @@
+@import url('https://fonts.googleapis.com/css2?family=Open+Sans:wght@300&display=swap');
+
+* {
+    font-family: 'Open Sans', sans-serif;
+}
+
 h1 {
     display: block;
     text-align: center;
     padding-top: 25rem;
+    font-size: 40px;
 }
 body{
     background-color: #b7ded2;
 }
-button{
+.login{
     background-color: #f6a6b2;
-    width : 50%;
+    width : 100%;
     padding: 15px;
     margin: 10px 0px;
-    border: black;
+    border: none;
     cursor: pointer;
     font-size: 1em;
-
+    border-radius: 5px;
+}
+.btn{
+    background-color: #f6a6b2;
+    border-radius: 5px;
+    padding: 12px 16px;
+    cursor: pointer;
+    border: none;
+    font-size: 1em;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
 }
 input[type=text], input[type=password] {   
     width: 100%;   
     margin: 8px 0;  
     padding: 12px 20px;   
     display: inline-block;   
-    border: 2px solid #f7c297;   
-    box-sizing: border-box;   
+    border: 2px solid #f6a6b2;  
+    box-sizing: border-box; 
+    border-radius: 10px;  
 }  
 button:hover {   
     opacity: 0.7;   
