@@ -13,7 +13,7 @@ h1 {
 body{
     background-color: #b7ded2;
 }
-.login{
+.login, .apply, .register {
     background-color: #f6a6b2;
     width : 100%;
     padding: 15px;
