@@ -8,7 +8,7 @@ const { response } = require('express');
 const connection = mysql.createConnection({
 	host     : 'localhost',
 	user     : 'judz',
-	password : '',
+	password : '***REMOVED***',
 	database : 'nodelogin'
 });
 
@@ -19,6 +19,7 @@ app.use(session({
 	resave: true,
 	saveUninitialized: true
 }));
+
 app.use(express.json());
 app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'static')));
@@ -27,6 +28,12 @@ app.use(express.static(path.join(__dirname, 'static')));
 app.get('/', function(request, response) {
 	// Render login template
 	response.sendFile(path.join(__dirname + '/login.html'));
+});
+
+app.get('/register', function(request, response){
+
+	return response.sendFile(path.join(__dirname + '/register.html'));
+
 });
 
 // http://localhost:3000/auth
@@ -65,14 +72,21 @@ app.post('/reg', function(request, response) {
 
 	if(username && password){
 
-		connection.query('INSERT INTO accounts (username, password) VALUES ?', [username, password], function(err, result) {
+		connection.query('INSERT INTO accounts (username, password, email) VALUES ?', [username, password], function(err, result) {
 			if (err) throw err;
 			console.log("Inserted "+username+" "+password);
+
+			response.redirect("/");
+
 		});
 
+
 	}
+	response.send("Missed Input")
 
 });
+
+// INSERT INTO `accounts` (`id`, `username`, `password`, `email`) VALUES (1, 'test', 'test', 'test@test.com');
 
 // http://localhost:3000/home
 app.get('/home', function(request, response) {
