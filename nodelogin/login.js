@@ -2,12 +2,13 @@ const mysql = require('mysql2');
 const express = require('express');
 const session = require('express-session');
 const path = require('path');
+const { response } = require('express');
 
 
 const connection = mysql.createConnection({
 	host     : 'localhost',
 	user     : 'judz',
-	password : 'password',
+	password : '',
 	database : 'nodelogin'
 });
 
@@ -55,6 +56,22 @@ app.post('/auth', function(request, response) {
 		response.send('Please enter Username and Password!');
 		response.end();
 	}
+});
+
+app.post('/reg', function(request, response) {
+
+	let username = request.body.usernmae;
+	let password = request.body.password;
+
+	if(username && password){
+
+		connection.query('INSERT INTO accounts (username, password) VALUES ?', [username, password], function(err, result) {
+			if (err) throw err;
+			console.log("Inserted "+username+" "+password);
+		});
+
+	}
+
 });
 
 // http://localhost:3000/home
