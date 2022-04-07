@@ -10,7 +10,7 @@ const connection = mysql.createConnection({
 	host     : 'localhost',
 	user     : 'judz',
 	password : '',
-	database : 'nodelogin'
+	database : ''
 });
 
 const app = express();
@@ -68,26 +68,27 @@ app.post('/auth', function(request, response) {
 
 app.post('/reg', function(request, response) {
 
-	let username = request.body.usernmae;
+	let username = request.body.username;
 	let password = request.body.password;
+
+	console.log("Inserted "+username+" "+password);
 
 	if(username && password){
 
-		connection.query('INSERT INTO accounts (username, password, email) VALUES ?', [username, password], function(err, result) {
+		connection.query("INSERT INTO accounts (username, password) VALUES (?,?)", [username, password], function(err, result) {
 			if (err) throw err;
 			console.log("Inserted "+username+" "+password);
 
-			response.redirect("/");
+			response.sendFile(path.join(__dirname + '/login.html'));
 
 		});
-
-
 	}
-	response.send("Missed Input")
+
 
 });
 
 // INSERT INTO `accounts` (`id`, `username`, `password`, `email`) VALUES (1, 'test', 'test', 'test@test.com');
+// removed email 
 
 // http://localhost:3000/home
 app.get('/home', function(request, response) {
