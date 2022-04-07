@@ -9,7 +9,7 @@ const { response } = require('express');
 const connection = mysql.createConnection({
 	host     : 'localhost',
 	user     : 'judz',
-	password : '***REMOVED***',
+	password : '',
 	database : 'nodelogin'
 });
 
