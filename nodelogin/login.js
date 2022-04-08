@@ -4,13 +4,11 @@ const session = require('express-session');
 const path = require('path');
 const { response } = require('express');
 
-// hello
-
 const connection = mysql.createConnection({
 	host     : 'localhost',
 	user     : 'judz',
-	password : '',
-	database : ''
+	password : '***REMOVED***',
+	database : 'nodelogin'
 });
 
 const app = express();
@@ -26,7 +24,7 @@ app.use(express.urlencoded({ extended: true }));
 app.use(express.static(path.join(__dirname, 'static')));
 
 // http://localhost:3000/
-app.get('/', function(request, response) {
+app.get('/login', function(request, response) {
 	// Render login template
 	response.sendFile(path.join(__dirname + '/login.html'));
 });
@@ -95,7 +93,8 @@ app.get('/home', function(request, response) {
 	// If the user is loggedin
 	if (request.session.loggedin) {
 		// Output username
-		response.send('Welcome back, ' + request.session.username + '!');
+		//response.send('Welcome back, ' + request.session.username + '!');
+		return response.sendFile(path.join(__dirname + '/home.html'));
 	} else {
 		// Not logged in
 		response.send('Please login to view this page!');

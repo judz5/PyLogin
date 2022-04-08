@@ -56,3 +56,46 @@ body {
     transition: background-color 0.2s;
 }
 
+.logo {
+  padding: 8px 5px 5px 10px;
+}
+
+
+ul {
+  list-style-type: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+  background-color: #ffffff;
+  box-shadow: 0 0 9px 0 rgba(0, 0, 0, 1);
+  border-radius: 10px;
+}
+  
+li {
+  float: left;
+  }
+  
+li a {
+  display: block;
+  color: black;
+  text-align: center;
+  padding: 23px 25px;
+  text-decoration: none;
+  font-size: large;
+}
+  
+  /* Change the link color to #111 (black) on hover */
+li a:hover {
+  background-color: #dee0e4;
+}
+
+.logout{
+  display: block;
+  margin: auto;
+}
+
+
+
+
+  
+
