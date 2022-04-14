@@ -93,7 +93,6 @@ app.get('/home', function(request, response) {
 	// If the user is loggedin
 	if (request.session.loggedin) {
 		// Output username
-		//response.send('Welcome back, ' + request.session.username + '!');
 		return response.sendFile(path.join(__dirname + '/home.html'));
 	} else {
 		// Not logged in
