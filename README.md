@@ -6,7 +6,7 @@
 ![](https://img.shields.io/badge/Node.js-43853D?style=for-the-badge&logo=node.js&logoColor=white)
 
 ### 2022 CSHS Cybersecurity
-Python Webscraping Login Bot, and NodeJS/Sql Login page
+Python Webscraping Login Bot, and NodeJS / MySQL Login page
 
 ## Rubric (50/50)
 
