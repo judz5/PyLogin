@@ -34,5 +34,24 @@ My research for this project started a few months ago when i started a web devel
 - https://codeshack.io/basic-login-system-nodejs-express-mysql/
 - https://www.w3schools.com/nodejs/nodejs_mysql_insert.asp
 
+## Use
+
+First you need to have an sql database setup with an accounts table (cols: username, password), then change the nodelogin/login.py to reflect the accurate host and password for sql.
+
+First start your sql server
+
+    $ brew services start mysql
+
+Next
+
+    $ node nodelogin/login.js
+
+Now the site is hosted at http://localhost:3000/login!
+
+once you have the site running and some accounts registered you can just do
+
+    $ python3 loginBot.py 
+
+this will run the python script and give you a list of all found login credientials from the site.
 
 
